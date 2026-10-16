@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="auth">
+  <div class="auth">
+    <aside class="auth-side">
+      <div class="brand"><span class="logo"></span>RiskFlow</div>
+      <p>Automação da gestão de riscos corporativos (ISO 31000) para empresas em fase de crescimento.</p>
+      <ul class="checks">
+        <li>Questionário guiado de mapeamento da empresa</li>
+        <li>Registro de Riscos gerado automaticamente</li>
+        <li>Avaliação de Riscos e plano de tratamento priorizado</li>
+      </ul>
+    </aside>
+
+    <main class="auth-main">
+      <form class="auth-form" id="loginForm">
+        <h1>Entrar na plataforma</h1>
+        <p class="muted" style="margin:0">Acesse sua conta RiskFlow com e-mail e senha.</p>
+        <div class="field">
+          <label for="email">E-mail corporativo</label>
+          <input class="input" id="email" type="email" placeholder="nome@empresa.com.br" required>
+        </div>
+        <div class="field">
+          <label for="senha">Senha</label>
+          <input class="input" id="senha" type="password" placeholder="••••••••" required minlength="6">
+        </div>
+        <div style="text-align:right"><a href="#" id="forgot" class="small">Esqueci minha senha</a></div>
+        <button class="btn primary" type="submit">Entrar</button>
+        <p class="muted small" style="text-align:center;margin:0">Não tem conta? <a href="cadastro.html"><strong>Criar conta →</strong></a></p>
+        <p class="muted small" style="text-align:center;margin:0">Protótipo: qualquer e-mail e senha com 6+ caracteres entram.</p>
+      </form>
+    </main>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    function initPage() {
+      $('#loginForm').addEventListener('submit', e => {
+        e.preventDefault();
+        Store.set('session', { email: $('#email').value, at: Date.now() });
+        location.href = 'dashboard.html';
+      });
+      $('#forgot').addEventListener('click', e => { e.preventDefault(); toast('Enviamos um link de redefinição para o seu e-mail (simulação).'); });
+    }
+  </script>
+</body>
+</html>

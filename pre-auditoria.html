@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pré-Auditoria · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="pre-auditoria" data-title="Pré-Auditoria dos Controles (Agente)" data-crumb="RiskFlow · Etapa 6 — Monitoramento e análise crítica">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content" id="page">
+
+        <div class="card row between">
+          <div>
+            <h2 style="margin-bottom:4px">Agente inteligente de pré-auditoria</h2>
+            <div class="muted">Analisa os controles do Registro de Riscos, identificando falhas, evidências insuficientes e riscos residuais.</div>
+          </div>
+          <button class="btn purple" type="button" id="btnRun">▶ Executar pré-auditoria</button>
+        </div>
+
+        <div class="grid g3" id="summary" hidden>
+          <div class="card kpi"><div class="label">Controles OK</div><div class="value c-green" id="sOk">0</div></div>
+          <div class="card kpi"><div class="label">Evidência insuficiente</div><div class="value c-amber" id="sIns">0</div></div>
+          <div class="card kpi"><div class="label">Falhas</div><div class="value c-red" id="sFail">0</div></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Controle</th><th>Status da verificação</th><th>Observação do agente</th><th>Risco residual</th></tr></thead>
+            <tbody id="rows"><tr><td colspan="4" class="muted" style="text-align:center;padding:32px">Clique em "Executar pré-auditoria" para analisar os controles.</td></tr></tbody>
+          </table>
+        </div>
+        <p class="small muted" id="lastRun"></p>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/pre-auditoria.js"></script>
+</body>
+</html>

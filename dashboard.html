@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="dashboard" data-title="Dashboard Consolidado">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content" id="page">
+
+        <div class="grid g4">
+          <div class="card kpi"><div class="label">Maturidade em Gestão de Riscos</div><div class="value c-amber" id="kMat">0%</div><div class="hint" id="kMatHint"></div></div>
+          <div class="card kpi"><div class="label">Ações concluídas</div><div class="value c-blue" id="kActions">0 / 0</div><div class="hint">Do plano de tratamento</div></div>
+          <div class="card kpi"><div class="label">Riscos críticos</div><div class="value c-red" id="kCrit">0</div><div class="hint" id="kCritHint"></div></div>
+          <div class="card kpi"><div class="label">Próximo prazo</div><div class="value" id="kDue">—</div><div class="hint" id="kDueHint"></div></div>
+        </div>
+
+        <div class="grid g2">
+          <div class="card">
+            <h2>Riscos por nível de exposição</h2>
+            <div class="stack" id="levelStack"></div>
+            <div class="legend" id="levelLegend"></div>
+          </div>
+          <div class="card">
+            <h2>Distribuição de controles por status</h2>
+            <div class="stack" id="ctrlStack"></div>
+            <div class="legend" id="ctrlLegend"></div>
+          </div>
+        </div>
+
+        <div class="grid g2">
+          <div class="card">
+            <h2>Evolução do índice de maturidade</h2>
+            <div class="vbars" id="history"></div>
+          </div>
+          <div class="card">
+            <h2>Riscos por categoria</h2>
+            <div id="cats"></div>
+          </div>
+        </div>
+
+        <div class="row no-print">
+          <button class="btn" type="button" onclick="location.href='relatorios.html?print=1'">⬇ Exportar relatório em PDF</button>
+          <button class="btn" type="button" onclick="exportRisksCSV()">⬇ Exportar dados em Excel</button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/dashboard.js"></script>
+</body>
+</html>

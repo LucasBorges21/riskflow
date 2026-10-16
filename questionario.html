@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionário de Mapeamento · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="questionario" data-title="Questionário de Mapeamento" data-crumb="RiskFlow · Etapa 1 — Estabelecimento do contexto">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content">
+
+        <!-- Etapas: Identificação + Blocos A a F (gerados por questionario.js) -->
+        <div class="steps" id="steps"></div>
+
+        <div class="qprogress">
+          <span id="progressText">0 de 52 respondidas</span>
+          <div class="progress"><span id="progressBar" style="width:0%"></span></div>
+        </div>
+
+        <!-- Conteúdo da etapa atual -->
+        <section class="card" id="stepCard"></section>
+
+        <div class="row between no-print">
+          <div class="row">
+            <button class="btn" type="button" id="btnBack">← Voltar</button>
+            <button class="btn" type="button" id="btnSave">Salvar rascunho</button>
+          </div>
+          <div class="row">
+            <button class="btn primary" type="button" id="btnNext">Avançar →</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/questionario.js"></script>
+</body>
+</html>

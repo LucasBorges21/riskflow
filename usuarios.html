@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usuários e Permissões · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="usuarios" data-title="Usuários e Permissões" data-crumb="RiskFlow · Administração">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content">
+
+        <div class="row between">
+          <div class="section-title" id="count">0 usuários</div>
+          <button class="btn primary" type="button" id="btnInvite">+ Convidar usuário</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nome</th><th>E-mail</th><th>Perfil de acesso</th><th>Status</th><th>Ações</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Perfis de acesso</h2>
+          <div class="grid g3">
+            <div><span class="badge b-purple">Administrador</span><p class="small muted">Gerencia usuários, responde o questionário e edita todos os dados.</p></div>
+            <div><span class="badge b-blue">Edição</span><p class="small muted">Edita o Registro de Riscos e atualiza o plano de tratamento.</p></div>
+            <div><span class="badge b-grey">Leitura</span><p class="small muted">Consulta dashboard e relatórios (ex.: auditoria externa).</p></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal: convite -->
+  <div class="modal-bg" id="modal">
+    <form class="modal" id="formInvite">
+      <h3 id="modalTitle">Convidar usuário</h3>
+      <div class="field"><label>Nome</label><input class="input" name="nome" required></div>
+      <div class="field"><label>E-mail</label><input class="input" name="email" type="email" required></div>
+      <div class="field"><label>Perfil de acesso</label>
+        <select class="input" name="perfil"><option>Leitura</option><option>Edição</option><option>Administrador</option></select></div>
+      <input type="hidden" name="idx">
+      <div class="row" style="justify-content:flex-end">
+        <button class="btn" type="button" id="btnCancel">Cancelar</button>
+        <button class="btn primary" type="submit">Salvar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/usuarios.js"></script>
+</body>
+</html>

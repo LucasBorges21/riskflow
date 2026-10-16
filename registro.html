@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro de Riscos · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="registro" data-title="Registro de Riscos" data-crumb="RiskFlow · Etapa 2 — Identificação de riscos">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content" id="page">
+
+        <div class="alert info">⚡ Registro de Riscos gerado automaticamente a partir do questionário de mapeamento. Ajuste probabilidade, impacto e status conforme a realidade da empresa.</div>
+
+        <div class="row between">
+          <div class="section-title" id="count">0 riscos</div>
+          <div class="row no-print">
+            <select class="input" id="filterCat" style="width:auto;padding:9px 12px"><option value="">Todas as categorias</option></select>
+            <button class="btn" type="button" id="btnAdd">+ Adicionar risco</button>
+            <button class="btn" type="button" id="btnExport">Exportar (Excel)</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Risco</th><th>Controle recomendado</th><th>Frequência</th><th>Responsável</th>
+                <th class="num" title="Probabilidade (1 a 5)">P</th><th class="num" title="Impacto (1 a 5)">I</th>
+                <th>Exposição</th><th>Status do controle</th><th class="no-print"></th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p class="small muted">P = probabilidade · I = impacto (escala de 1 a 5) · Exposição = P × I. O corte de "Crítico" segue o apetite a risco informado no Bloco F.</p>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal: novo risco -->
+  <div class="modal-bg" id="modal">
+    <form class="modal" id="formAdd">
+      <h3>Adicionar risco</h3>
+      <div class="field"><label>Descrição do risco</label><input class="input" name="risk" required></div>
+      <div class="grid g2">
+        <div class="field"><label>Categoria</label>
+          <select class="input" name="cat"><option>Estratégico</option><option>Operacional</option><option>Financeiro</option><option>Tecnológico</option><option>Regulatório</option><option>Legal</option><option>Reputacional</option></select></div>
+        <div class="field"><label>Responsável</label><input class="input" name="owner" required></div>
+      </div>
+      <div class="field"><label>Controle recomendado</label><input class="input" name="control" required></div>
+      <div class="grid g3">
+        <div class="field"><label>Frequência</label>
+          <select class="input" name="freq"><option>Contínua</option><option>Mensal</option><option>Trimestral</option><option>Semestral</option><option>Anual</option></select></div>
+        <div class="field"><label>Probabilidade</label><input class="input" name="p" type="number" min="1" max="5" value="3" required></div>
+        <div class="field"><label>Impacto</label><input class="input" name="i" type="number" min="1" max="5" value="3" required></div>
+      </div>
+      <div class="field"><label>Ação de tratamento</label><input class="input" name="action" required></div>
+      <div class="row" style="justify-content:flex-end">
+        <button class="btn" type="button" id="btnCancel">Cancelar</button>
+        <button class="btn primary" type="submit">Salvar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/registro.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatórios · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="relatorios" data-title="Relatórios">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content" id="page">
+
+        <div class="row between no-print">
+          <span class="muted">Relatório executivo de gestão de riscos, pronto para impressão ou PDF.</span>
+          <div class="row">
+            <button class="btn" type="button" onclick="exportRisksCSV()">⬇ Excel</button>
+            <button class="btn primary" type="button" onclick="window.print()">⬇ Salvar em PDF</button>
+          </div>
+        </div>
+
+        <article class="card report" id="report"></article>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/relatorios.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avaliação de Riscos · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="avaliacao" data-title="Avaliação de Riscos (ISO 31000)" data-crumb="RiskFlow · Etapa 3 — Análise e avaliação">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content" id="page">
+
+        <!-- Indicadores -->
+        <div class="grid g4">
+          <div class="card kpi">
+            <div class="label">Índice de Maturidade em Gestão de Riscos</div>
+            <div class="value c-amber" id="kMat">0%</div>
+            <div class="progress"><span id="kMatBar" style="width:0%"></span></div>
+            <div class="hint" id="kMatLvl"></div>
+          </div>
+          <div class="card kpi"><div class="label">Controles existentes</div><div class="value c-green" id="kImp">0</div><div class="hint">Já implementados</div></div>
+          <div class="card kpi"><div class="label">Controles incompletos</div><div class="value c-amber" id="kPar">0</div><div class="hint">Parcialmente aplicados</div></div>
+          <div class="card kpi"><div class="label">Controles a criar</div><div class="value c-red" id="kPen">0</div><div class="hint">Ainda não iniciados</div></div>
+        </div>
+
+        <div class="grid g2">
+          <!-- Matriz de calor -->
+          <div class="card">
+            <h2>Matriz de probabilidade × impacto</h2>
+            <p class="sub">Número de riscos em cada célula. Corte de crítico: exposição ≥ <span id="cut">15</span>.</p>
+            <div class="heat" id="heat"></div>
+            <div class="heat-cap"><span>↑ Probabilidade</span><span>Impacto →</span></div>
+          </div>
+          <!-- Maturidade por cláusula -->
+          <div class="card">
+            <h2>Maturidade por cláusula da ISO 31000</h2>
+            <p class="sub">Notas de 1 a 5 do Bloco E do questionário.</p>
+            <div id="clauses"></div>
+          </div>
+        </div>
+
+        <div class="row between">
+          <div class="section-title">Riscos prioritários</div>
+          <span class="small muted">Atualizado automaticamente ao editar o Registro de Riscos</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Risco</th><th>Área</th><th>Exposição</th><th>Nível</th><th>Controle relacionado</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/avaliacao.js"></script>
+</body>
+</html>

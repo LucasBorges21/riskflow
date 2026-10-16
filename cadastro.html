@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criar conta · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="auth">
+  <div class="auth">
+    <aside class="auth-side">
+      <div class="brand"><span class="logo"></span>RiskFlow</div>
+      <p>Automação da gestão de riscos corporativos (ISO 31000) para empresas em fase de crescimento.</p>
+      <ul class="checks">
+        <li>Questionário guiado de mapeamento da empresa</li>
+        <li>Registro de Riscos gerado automaticamente</li>
+        <li>Avaliação de Riscos e plano de tratamento priorizado</li>
+      </ul>
+    </aside>
+
+    <main class="auth-main">
+      <form class="auth-form" id="signupForm">
+        <h1>Criar sua conta</h1>
+        <p class="muted" style="margin:0">Cadastre sua empresa para iniciar a gestão de riscos.</p>
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input class="input" id="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="field">
+          <label for="cargo">Cargo</label>
+          <input class="input" id="cargo" placeholder="Ex.: Diretor Financeiro" required>
+        </div>
+        <div class="field">
+          <label for="empresa">Empresa</label>
+          <input class="input" id="empresa" placeholder="Razão social" required>
+        </div>
+        <div class="field">
+          <label for="email">E-mail corporativo</label>
+          <input class="input" id="email" type="email" placeholder="nome@empresa.com.br" required>
+        </div>
+        <div class="field">
+          <label for="senha">Senha</label>
+          <input class="input" id="senha" type="password" placeholder="Mínimo de 8 caracteres" required minlength="8">
+        </div>
+        <div class="field">
+          <label for="senha2">Confirmar senha</label>
+          <input class="input" id="senha2" type="password" placeholder="Repita a senha" required minlength="8">
+        </div>
+        <label class="small muted" style="display:flex;gap:8px;align-items:flex-start">
+          <input type="checkbox" id="lgpd" required> Li e aceito o termo de uso e o tratamento dos dados conforme a LGPD.
+        </label>
+        <button class="btn primary" type="submit">Criar conta e continuar</button>
+        <p class="muted small" style="text-align:center;margin:0">Já tem conta? <a href="index.html"><strong>Entrar →</strong></a></p>
+      </form>
+    </main>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    function initPage() {
+      $('#signupForm').addEventListener('submit', e => {
+        e.preventDefault();
+        if ($('#senha').value !== $('#senha2').value) { toast('As senhas não conferem.'); return; }
+        // Nova conta: começa com questionário em branco
+        ['risks', 'history', 'sample', 'audit', 'draftStep'].forEach(k => Store.remove(k));
+        Store.set('answers', { A1: $('#empresa').value, _respondent: { nome: $('#nome').value, cargo: $('#cargo').value } });
+        Store.set('session', { email: $('#email').value, at: Date.now() });
+        location.href = 'questionario.html';
+      });
+    }
+  </script>
+</body>
+</html>

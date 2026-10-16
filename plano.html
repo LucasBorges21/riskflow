@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plano de Tratamento · RiskFlow</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="plano" data-title="Plano de Tratamento de Riscos" data-crumb="RiskFlow · Etapa 4 — Tratamento de riscos">
+  <div class="app">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <main class="content" id="page">
+
+        <div class="row between">
+          <span class="muted">Gerado automaticamente a partir da Avaliação de Riscos, ordenado por exposição.</span>
+          <span class="badge b-green" style="padding:6px 12px">🔔 Notificações de prazos ativadas</span>
+        </div>
+
+        <div class="grid g4">
+          <div class="card kpi"><div class="label">Ações no plano</div><div class="value c-blue" id="kTotal">0</div><div class="hint">Uma por risco mapeado</div></div>
+          <div class="card kpi"><div class="label">Concluídas</div><div class="value c-green" id="kDone">0</div><div class="hint" id="kDonePct"></div></div>
+          <div class="card kpi"><div class="label">Em andamento</div><div class="value c-amber" id="kDoing">0</div><div class="hint">Com responsável atuando</div></div>
+          <div class="card kpi"><div class="label">Atrasadas</div><div class="value c-red" id="kLate">0</div><div class="hint">Prazo vencido e não concluídas</div></div>
+        </div>
+
+        <div class="row between no-print">
+          <select class="input" id="filterStatus" style="width:auto;padding:9px 12px">
+            <option value="">Todos os status</option><option>Não iniciado</option><option>Em andamento</option><option>Concluído</option>
+          </select>
+          <button class="btn" type="button" id="btnExport">Exportar (Excel)</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Ação</th><th>Prioridade</th><th>Responsável</th><th>Prazo</th><th>Status</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p class="small muted">Prazos sugeridos: Crítico 30 dias · Alto 60 · Médio 90 · Baixo 180. Responsável e prazo podem ser alterados na tabela.</p>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages/plano.js"></script>
+</body>
+</html>
